@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
+import propsTypes from "prop-types";
 
 export default function Button(props) {
   const className = [props.className];
@@ -33,7 +33,7 @@ export default function Button(props) {
   if (props.type === "link") {
     if (props.isExternal) {
       return (
-        <a href={props.href} className={className.join(" ")} style={props.style} target={props.target === "_blank" ? "_blank" : undefined} rel={props.target === "_blank" ? "noopener noreferrer" : undefined}>
+        <a href={props.href} className={className.join(" ")} style={props.style} target={props.target === "_blank" ? "_blank" : undefined} rel={props.target === "_blank" ? "noopener" : undefined}>
           {props.children}
         </a>
       );
@@ -52,17 +52,17 @@ export default function Button(props) {
   );
 }
 
-Button.PropTypes = {
-  type: PropTypes.oneOf(["button", "link"]),
-  onClick: PropTypes.func,
-  href: PropTypes.string,
-  target: PropTypes.string,
-  className: PropTypes.string,
-  isDisabled: PropTypes.bool,
-  isExternal: PropTypes.bool,
-  isLoading: PropTypes.bool,
-  isSmall: PropTypes.bool,
-  isLarge: PropTypes.bool,
-  isBlock: PropTypes.bool,
-  hasShadow: PropTypes.bool,
+Button.propTypes = {
+  type: propsTypes.oneOf(["button", "link"]),
+  onClick: propsTypes.func,
+  href: propsTypes.string,
+  target: propsTypes.string,
+  className: propsTypes.string,
+  isDisabled: propsTypes.bool,
+  isExternal: propsTypes.bool,
+  isLoading: propsTypes.bool,
+  isSmall: propsTypes.bool,
+  isLarge: propsTypes.bool,
+  isBlock: propsTypes.bool,
+  hasShadow: propsTypes.bool,
 };
